@@ -10,12 +10,6 @@ function funcao1()
         echo "Erro: " . $e->getMessage() . PHP_EOL
             . "Linha: " . $e->getLine() . PHP_EOL
             . "Trilha de execução: " . $e->getTraceAsString();
-
-        throw new RuntimeException(
-            "Uma nova exceção.",
-            $e->getCode(),
-            $e
-        );
     }
 
     echo "Sai da função 1" . PHP_EOL;
