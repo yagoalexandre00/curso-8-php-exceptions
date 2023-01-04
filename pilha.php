@@ -7,7 +7,9 @@ function funcao1()
     try {
         funcao2();
     } catch (RuntimeException | DivisionByZeroError $e) {
-        echo "Error: " . $e->getMessage() . PHP_EOL;
+        echo "Erro: " . $e->getMessage() . PHP_EOL
+            . "Linha: " . $e->getLine() . PHP_EOL
+            . "Trilha de execução: " . $e->getTraceAsString();
     }
 
     echo "Sai da função 1" . PHP_EOL;
