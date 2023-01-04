@@ -10,6 +10,12 @@ function funcao1()
         echo "Erro: " . $e->getMessage() . PHP_EOL
             . "Linha: " . $e->getLine() . PHP_EOL
             . "Trilha de execução: " . $e->getTraceAsString();
+
+        throw new RuntimeException(
+            "Uma nova exceção.",
+            $e->getCode(),
+            $e
+        );
     }
 
     echo "Sai da função 1" . PHP_EOL;
@@ -18,9 +24,8 @@ function funcao1()
 function funcao2()
 {
     echo "Entrei na função 2" . PHP_EOL;
-    intdiv(2, 0);
-    $arrayFixo = new SplFixedArray(2);
-    $arrayFixo[3] = "Oi";
+    throw new RuntimeException();
+
     echo "Sai da função 2" . PHP_EOL;
 }
 
